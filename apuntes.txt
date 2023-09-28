@@ -71,7 +71,7 @@ controls: muestra los controles del video
 182 : Sobreado sobre el video, agregando contenido sobre el video
 184 : terminando seccion video
 
-
+185.. aca deveria seguir!
 
 
 git--> ya tengo el repositorio creado
