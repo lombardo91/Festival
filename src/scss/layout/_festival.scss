@@ -1,0 +1,31 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+/*
+.sobre-festival {
+    padding: 5rem 0; // agregar separacion
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5rem; // Separacion de elementos en el grid
+}
+*/
+.sobre-festival {
+    padding: 5rem 0; // agregar separacion
+    @include m.tablet {
+        @include m.grid(2, 5rem);
+    }
+}
+
+.contenido-festival {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+    .fecha{
+        color: v.$rosa;
+        font-weight: 700;
+    }
+}

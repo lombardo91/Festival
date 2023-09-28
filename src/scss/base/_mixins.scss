@@ -1,0 +1,26 @@
+@use 'variables' as v;
+
+/*
+Los mixins, los uso para crear los mediaqueries, cree las variables con las diferentes resoluciones
+y luego creo el mixins para poder utilizarlo luego y reutilizarlo 
+*/
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content; //para poder llamar a un bloque de codigo
+    }
+}
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content; 
+    }
+}
+@mixin compu {
+    @media (min-width: v.$compu) {
+        @content; 
+    }
+}
+@mixin grid ($columnas, $espaciado){
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    gap: $espaciado; // Separacion de elementos en el grid
+}

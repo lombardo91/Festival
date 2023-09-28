@@ -1,0 +1,83 @@
+Este proyecto trata de SASS
+
+
+
+//
+
+159
+light hose: reportes de la pagina tratando las buenas practicas de desarrollo
+SASS:desarrollar herramientas mas pronto
+variables en sasss : $rojo
+Dependencias de desarrollo: dependencias locales, cuando el proyecto se monte al servidor, estas no se instalaran.
+se encuentran en el package.json.
+
+Al crear el paquete node, nos crea la carpeta node_modules, crece muchisimo a avanzar en el proyecto,
+eliminar sin problemas, reeinstalar con: npm install  >>> Gracias a las dependencias en package.json
+
+forma de instalacion: npm install sass --save-dev
+160
+en package.json  
+ "scripts":
+    "sass": "sass src/scss:build/css" 
+             sass: archivo binario en la carpeta node_modules
+             src/scss: indica que archivo compilara
+             build/css: destino de la compilacion, destino se crea desde aqui
+            --watch: escuchando continuamente por los cambios
+161, 162 : ver lo mismo con Gulp   --   gulp
+Gulp: funciones para automatizar tareas
+
+ npx gulp NombreDeLaFuncion   ---> en la consola, desde gulpfile
+ npx : al instalar node nos permite ejecutar paquetes sin instalarlos globalmente
+ gulp : binario dentro de node_modules, al instalar gulp en el package.json
+164
+Instalar dependencia de Gulp para conectarlo con Sass
+Gulp-Sass
+166: 
+forma vieja de vincular archivo de sass
+@import : permite utilizar todas las variables en todos los archivos
+----
+@import 'base';
+@import 'contenido'
+167: 
+sintaxis nueva de compartir archivos en sass
+forwart en el _index
+use en el app.scss : acceso a instancias locales, no globales
+168:
+indicarle al gulpfile que tenemos archivos  para escuchar,
+171: 
+Evitar que se detenga la ejecuccion al tener un error de sintaxis gulp lumber
+ npm i --save-dev gulp-plumber
+
+ volvi hasta el 165, para poder hacer andar la actualizacion de la pagina automaticamente
+175-175 : mixins - mixins inteligentes super eficientes 
+177!
+178: creando snippet para los MediaQueries
+Ctrl+Shif+p   ---> Snippet Scss.json
+
+"media query": {
+			"prefix": "mq",
+			"body": [
+				"@include m.$1 {\n\t$2\n}"   
+			]
+		}
+179: snippet para las importaciones de variables y mixins
+180: haciendo la navegacion
+181: agregando el video en html
+los atributos que se agregan a la etiqueta video..
+autopley: se reproduce
+muted: para q arranque el video cuando este ya en el servidor
+loop: vuelve a comenzar cuando finaliza
+controls: muestra los controles del video 
+182 : Sobreado sobre el video, agregando contenido sobre el video
+184 : terminando seccion video
+
+
+
+
+git--> ya tengo el repositorio creado
+git status
+git add .  : agregar todo
+
+git commit -m "mensaje"  : 
+
+git log   : ver los commit
