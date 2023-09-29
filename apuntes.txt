@@ -75,8 +75,7 @@ controls: muestra los controles del video
 npm install --save-dev gulp-webp  ---> dependencia 
 189: hacer version jpg y png mas lijeras con la dependencia de gulp  
 npm i --save-dev gulp-imagemin@7.1.0
-
-Revisar 189!! 29/09 Dalee!
+190: formate de imagenes avif: npm install --save-dev gulp-avif  --> formato lijero de imagenes!
 
 git--> ya tengo el repositorio creado
 git status

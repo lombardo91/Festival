@@ -7,11 +7,10 @@ const sass = require('gulp-sass')(require('sass'));
 const plumber = require('gulp-plumber');
 
 // Imagenes -----
-const cache = requiere('gulp-cache'); // npm i --save-dev gulp-cache
-const imagemin = requiere('gulp-imagemin'); // npm i --save-dev gulp-imagemin@7.1.0
+const cache = require('gulp-cache'); // npm i --save-dev gulp-cache
+const imagemin = require('gulp-imagemin'); // npm i --save-dev gulp-imagemin@7.1.0
 const webp = require('gulp-webp');
-
-clearImmediate
+const avif = require('gulp-avif');
 /*
 function tarea(done){
     console.log('Hola Mundo');
@@ -39,13 +38,14 @@ function css(done) {
     done(); //Callback avisa a Gulp cuando llegamos al final
 }
 
+// procesar imagenes y hacerlas mas ligeras 
 function imagenes(done) {
     const opciones = {
         optimizationLevel: 3
     }
 
     src('src/scss/img/**/*.{png,jpg}')
-    .pipe( cache ( imagenes(opciones)))
+    .pipe( cache ( imagemin(opciones)))
     .pipe(dest("build/img"))
 
     done();
@@ -64,6 +64,19 @@ function versionWebp(done) {
     done();
 }
 
+function versionAvif(done) {
+
+    const opciones = {
+        quality: 50   
+    };
+
+    src('src/scss/img/**/*.{png,jpg}') // {.....} ==> Busca, los formatos que le indique dentro de esas {}
+        .pipe( avif(opciones))
+        .pipe( dest("build/img"))
+
+    done();
+}
+
 function dev(done) {
     watch('src/scss/**/*.scss', css)
     // watch, deja siempre escuchando el archivo para detectar si sufre cambios
@@ -75,7 +88,8 @@ function dev(done) {
 exports.css = css;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
-exports.dev = parallel(imagenes, versionWebp, dev);  // parallel: ejecuta funciones en simultaneo
+exports.versionAvif = versionAvif;
+exports.dev = parallel(imagenes, versionWebp, versionAvif, dev);  // parallel: ejecuta funciones en simultaneo
 
 
 
