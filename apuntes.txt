@@ -77,6 +77,10 @@ npm install --save-dev gulp-webp  ---> dependencia
 npm i --save-dev gulp-imagemin@7.1.0
 190: formate de imagenes avif: npm install --save-dev gulp-avif  --> formato lijero de imagenes!
 
+193: Comenzando seccion de grilla de eventos
+
+196! >>>>>>>>>>> aca quedee!!
+
 git--> ya tengo el repositorio creado
 git status
 git add .  : agregar todo

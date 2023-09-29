@@ -24,3 +24,8 @@ y luego creo el mixins para poder utilizarlo luego y reutilizarlo
     grid-template-columns: repeat($columnas, 1fr);
     gap: $espaciado; // Separacion de elementos en el grid
 }
+@mixin resetear-lista{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
