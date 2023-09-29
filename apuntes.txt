@@ -73,8 +73,10 @@ controls: muestra los controles del video
 187 : imagenes webp--> creando el gulpFile para automatizar tareas, ejecutar funciones en simultaneo
 188 -> Generar imagenes webp con Gulp
 npm install --save-dev gulp-webp  ---> dependencia 
+189: hacer version jpg y png mas lijeras con la dependencia de gulp  
+npm i --save-dev gulp-imagemin@7.1.0
 
-
+Revisar 189!! 29/09 Dalee!
 
 git--> ya tengo el repositorio creado
 git status
