@@ -1,9 +1,13 @@
-const {src, dest, watch} = require("gulp")
+const {src, dest, watch} = require('gulp');
 //requiere: extraer toda la funcionalidad de gulp 
 //gulp: dependencia en el package.json 
-const sass = require("gulp-sass")(require('sass'));
+
+// CSS------
+const sass = require('gulp-sass')(require('sass'));
 const plumber = require('gulp-plumber');
 
+// Imagenes -----
+const webp = require('gulp-webp');
 
 
 /*
@@ -33,6 +37,18 @@ function css(done) {
     done(); //Callback avisa a Gulp cuando llegamos al final
 }
 
+function versionWebp(done) {
+
+    const opciones = {
+        quality: 50
+    };
+
+    src('src/img/**/*.{jpg, png}')
+        .pipe( webp(opciones))
+        .pipe( dest('build/img'))
+    done();
+}
+
 function dev(done) {
     watch('src/scss/**/*.scss', css)
     // watch, deja siempre escuchando el archivo para detectar si sufre cambios
@@ -43,6 +59,7 @@ function dev(done) {
 
 exports.css = css;
 exports.dev = dev;
+exports.versionWebp = versionWebp;
 
 //DEsde aca llamamos a las funciones con : npx gulp nombreDeLaFuncion
 // Si lo llamo desde el package.json utilizo : npm run nombreDeLaFuncion

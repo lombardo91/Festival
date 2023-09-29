@@ -21,6 +21,12 @@
     flex-direction: column;
     justify-content: center;
 
+    margin-top: 3rem;
+    
+    @include m.tablet {
+        margin-top: 0;
+    }
+
     h2 {
         margin-bottom: 1rem;
     }

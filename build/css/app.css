@@ -477,6 +477,12 @@ video {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .contenido-festival {
+    margin-top: 0;
+  }
 }
 .contenido-festival h2 {
   margin-bottom: 1rem;
