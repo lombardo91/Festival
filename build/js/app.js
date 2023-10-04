@@ -20,7 +20,7 @@ function crearGaleria() {
         `;
 
         imagen.onclick = function() {
-            mostrarImagen();
+            mostrarImagen(i);
         }
     
         galeria.appendChild(imagen);
@@ -28,6 +28,38 @@ function crearGaleria() {
     // Este codigo sirve para crear una galeria de imagenes, cuando las imagenes tenga su nuombre bum consecutivos
 }
 // accion rapida comnetario    Ctrl+}
-function mostrarImagen(i) {
-    
+function mostrarImagen(id) {
+    const imagen = document.createElement('picture');
+    imagen.innerHTML= 
+    `
+    <source srcset="build/img/grande/${id}.webp"    type="imagen/webp">      
+    <source srcset="build/img/grande${id}.avif"    type="imagen/avif">
+    <img loading="lazy" width="200" height="300" src="build/img/grande/${id}.jpg" alt="imagen vocalista">
+    `;
+    //Crear el Overlay con imagen
+    const overlay = document.createElement('DIV');
+    overlay.appendChild(imagen);
+    overlay.classList.add('overlay');
+
+    overlay.onclick = function() {
+        const body = document.querySelector('body');
+         body.classList.remove('fijar-body')
+         overlay.remove();
+    }
+
+    // Boton para cerrar el modal
+    const cerrarModal = document.createElement('P');
+    cerrarModal.textContent = 'X';
+    cerrarModal.classList.add('btn-cerrar');
+    cerrarModal.onclick = function() {
+        const body = document.querySelector('body');
+        body.classList.remove('fijar-body')
+        overlay.remove();
+    }
+    overlay.appendChild(cerrarModal);
+
+    //añadirlo al HTML
+    const body = document.querySelector('body');
+    body.appendChild(overlay);
+    body.classList.add('fijar-body')
 }
