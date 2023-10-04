@@ -44,11 +44,20 @@
 }
 
 .btn-cerrar {
-    display: block;
-    text-align: center;
+ 
+
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
     background-color: v.$blanco;
     color: v.$negro;
+
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+
+    &:hover {
+        cursor: pointer;
+    }
+
 }

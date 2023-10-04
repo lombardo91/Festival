@@ -13,6 +13,10 @@ html{
 body {
     font-family: v.$fuente_principal;
     font-size: 1.6rem;
+
+    &.fijar-body{    //Sacar scroll cuando abro la imagen de la galeria en grande
+        overflow: hidden;
+    }
 }
 p{
     font-size: 2rem;

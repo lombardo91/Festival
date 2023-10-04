@@ -50,11 +50,15 @@ y luego creo el mixins para poder utilizarlo luego y reutilizarlo
 }
 
 .btn-cerrar {
-  display: block;
-  text-align: center;
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
   background-color: #ffffff;
   color: #000000;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+.btn-cerrar:hover {
+  cursor: pointer;
 }
