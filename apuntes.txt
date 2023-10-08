@@ -79,7 +79,10 @@ npm i --save-dev gulp-imagemin@7.1.0
 
 193: Comenzando seccion de grilla de eventos
 
-204 quede, revisar desde 200
+210 quede, revisar desde 200
+
+Termine!!
+210 deploment!! ---> hacerlo!!
 
 git--> ya tengo el repositorio creado
 git status

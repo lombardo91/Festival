@@ -6,11 +6,19 @@ const {src, dest, watch, parallel} = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const plumber = require('gulp-plumber');
 
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const postcss = require('gulp-postcss');
+const sourcemaps = require('gulp-sourcemaps');
+
 // Imagenes -----
 const cache = require('gulp-cache'); // npm i --save-dev gulp-cache
 const imagemin = require('gulp-imagemin'); // npm i --save-dev gulp-imagemin@7.1.0
 const webp = require('gulp-webp');
 const avif = require('gulp-avif');
+
+// JavaScript
+const terser = require('gulp-terser-js');
 /*
 function tarea(done){
     console.log('Hola Mundo');
@@ -28,9 +36,12 @@ exports.acaPongo = tarea;
 function css(done) {
     //identificar el archivo de SASS
     src('src/scss/**/*.scss')
+        .pipe(sourcemaps.init())
         .pipe( plumber()) // evita que se detenga la ejecucion por errores
         //Compilarlo   //El Sass que traigo del package.json
         .pipe(sass() )
+        .pipe(postcss([ autoprefixer(), cssnano() ]))
+        .pipe(sourcemaps.write('.'))
         //Almacenar el archivo
         .pipe(dest("build/css"))
 
@@ -79,6 +90,9 @@ function versionAvif(done) {
 
 function javascript(done){
     src('src/js/**/*.js')
+    .pipe(sourcemaps.init())
+    .pipe( terser() )
+    .pipe(sourcemaps.write('.'))
     .pipe(dest('build/js'));
 
     done();
